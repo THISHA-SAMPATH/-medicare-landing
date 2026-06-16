@@ -5,6 +5,7 @@ import TrustedBy from './components/sections/TrustedBy'
 import Consultants from './components/sections/Consultants'
 import MapFeatures from './components/sections/MapFeatures'
 import CTABanner from './components/sections/CTABanner'
+import Footer from './components/layout/Footer'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Consultants />
       <MapFeatures />
       <CTABanner />
+      <Footer />
     </main>
   )
 }
