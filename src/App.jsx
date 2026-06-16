@@ -58,9 +58,7 @@ function Button({ children, tone = 'primary', className = '' }) {
 function Logo({ light = false }) {
   return (
     <a href="#home" className="logo" aria-label="Medicare home">
-      <span className="logo-mark">
-        <CircleDot size={12} />
-      </span>
+      <span className="logo-mark-m">M</span>
       <span className={light ? 'text-white' : ''}>Medicare</span>
     </a>
   )
@@ -74,17 +72,21 @@ function Navbar() {
       <nav className="nav-shell" aria-label="Primary navigation">
         <Logo />
         <div className="nav-links">
-          {navLinks.map((item) => (
-            <a key={item} href={`#${item === 'Home' ? 'home' : item.toLowerCase()}`}>
-              {item}
-            </a>
-          ))}
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services" className="nav-dropdown-trigger">
+            Services <ChevronDown size={14} className="chevron" />
+          </a>
+          <a href="#blog">Blog</a>
         </div>
         <div className="nav-actions">
-          <a className="login-link" href="#login">Login</a>
-          <Button className="nav-signup">
-            Sign up <ArrowRight size={14} />
-          </Button>
+          <a className="nav-get-started" href="#services">Get Started</a>
+          <a className="nav-contact-btn" href="#blog">
+            <span>Contact Us</span>
+            <span className="arrow-circle">
+              <ArrowRight size={12} />
+            </span>
+          </a>
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Toggle theme">
             {isDark ? <Moon size={14} /> : <Sun size={14} />}
           </button>
@@ -99,101 +101,92 @@ function Navbar() {
 
 function HeroDoctor() {
   return (
-    <motion.div
-      className="hero-doctor"
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
-    >
-      <div className="doctor-image-wrapper">
-        <img
-          src={doctorImg}
-          alt="Doctor"
-        />
-      </div>
-      <motion.div className="hero-play-badge" animate={{ y: [0, -4, 0] }} transition={{ duration: 3.2, repeat: Infinity }}>
-        <span className="play-icon"><Play size={14} /></span>
-        <div>
-          <strong>Watch Demo</strong>
-          <small>Instant Care</small>
+    <div className="hero-doctor-panel">
+      <div className="doctor-image-container">
+        <img src={doctorImg} alt="Doctor" className="doctor-main-img" />
+        
+        {/* Floating Medicare Active Tag */}
+        <div className="floating-med-tag">
+          <span className="active-dot" />
+          <span>Medicare</span>
         </div>
-      </motion.div>
-      <motion.div className="float-card float-stats" animate={{ y: [0, -6, 0] }} transition={{ duration: 3.8, repeat: Infinity }}>
-        <span className="mini-icon"><HeartPulse size={13} /></span>
-        <div>
-          <strong>1.2k Active</strong>
-          <small>Patients today</small>
-        </div>
-      </motion.div>
-      <motion.div className="float-card float-center" animate={{ y: [0, -5, 0] }} transition={{ duration: 3.5, repeat: Infinity }}>
-        <div className="call-preview">
-          <span className="call-avatar" aria-hidden="true" />
-          <div>
-            <strong>Consultation Active</strong>
-            <small>Dr. Sara is online</small>
+
+        {/* Floating Calling Card */}
+        <div className="floating-calling-card">
+          <img src={cus1} alt="Caller" className="caller-avatar" />
+          <div className="calling-info">
+            <span className="calling-title">Calling...</span>
           </div>
+          <span className="calling-icon-receiver">
+            <Phone size={12} fill="#22c55e" stroke="none" />
+          </span>
         </div>
-        <button className="call-button" aria-label="Open call details"><Video size={14} /></button>
-      </motion.div>
-      <motion.div className="float-card float-med" animate={{ y: [0, -7, 0] }} transition={{ duration: 3.5, repeat: Infinity }}>
-        <span className="mini-icon"><MessageCircle size={13} /></span>
-        <div>
-          <strong>Medicare</strong>
-          <small>2 min ago</small>
+
+        {/* Overlapping Call Control Buttons at the Bottom Right */}
+        <div className="floating-call-controls">
+          <button className="control-btn" aria-label="Video">
+            <Video size={14} />
+          </button>
+          <button className="control-btn end-call" aria-label="End call">
+            <Phone size={14} className="rotate-[135deg]" />
+          </button>
+          <button className="control-btn" aria-label="Settings">
+            <CircleDot size={14} />
+          </button>
         </div>
-      </motion.div>
-      <motion.div className="float-card float-call" animate={{ y: [0, 6, 0] }} transition={{ duration: 4, repeat: Infinity }}>
-        <span className="call-icon"><Video size={13} /></span>
-        <span>Calling...</span>
-        <button className="call-small" aria-label="Camera"><Video size={10} /></button>
-        <button className="call-end" aria-label="End call"><ArrowRight size={10} /></button>
-        <button className="call-small" aria-label="Settings"><CircleDot size={10} /></button>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }
 
 function Hero() {
   return (
     <section id="home" className="hero section">
-      <div className="hero-reference-frame" aria-hidden="true">
-        <img src="/reference-design.jpg" alt="" />
-      </div>
       <div className="container hero-grid">
-        <motion.div variants={stagger} initial="hidden" animate="show" className="hero-copy">
-          <motion.p variants={fadeUp} className="eyebrow center">No.1 Medical Service</motion.p>
-          <motion.h1 variants={fadeUp}>
-            Get Premium <br /> medical care <br /> for your best <br /> health
-          </motion.h1>
-          <motion.p variants={fadeUp} className="hero-text">
-            Medicare provides a wide range of medical services to keep you healthy. Expert consultation is available anytime.
-          </motion.p>
-          <motion.div variants={fadeUp} className="hero-actions">
-            <Button>Appointment <ArrowRight size={15} /></Button>
-          </motion.div>
-          <motion.div variants={fadeUp} className="hero-benefits">
-            <div className="benefit-pill">
-              <ShieldCheck size={14} />
-              <span>HIPAA Compliant</span>
-            </div>
-            <div className="benefit-pill">
-              <HeartPulse size={14} />
-              <span>24/7 Care</span>
-            </div>
-            <div className="benefit-pill">
-              <MessageCircle size={14} />
-              <span>Expert Doctors</span>
-            </div>
-          </motion.div>
-          <motion.div variants={fadeUp} className="happy-row">
-            <span>Happy Customers</span>
+        {/* Left Panel Card: Gradient Background & Texts */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="hero-left-card"
+        >
+          {/* Eyebrow badge outline */}
+          <div className="hero-eyebrow-badge">
+            <span className="badge-tag">New</span>
+            <span className="badge-text">Best Medical Service of 2026 ↗</span>
+          </div>
+
+          <h1>
+            Get Premium <br />
+            medical care <br />
+            for your best <br />
+            health
+          </h1>
+
+          <p className="hero-description">
+            Doctors can spend many years, so when you need doctor, you find out. We also provide online regular medical services.
+          </p>
+
+          <button className="hero-schedule-btn">
+            <span>Make a schedule</span>
+            <span className="arrow-circle">
+              <ArrowRight size={14} />
+            </span>
+          </button>
+
+          {/* Happy Customer stack */}
+          <div className="happy-customers">
+            <span>Happy Customer</span>
             <div className="avatar-stack">
               {CUSTOMER_AVATARS.map((src, index) => (
                 <img key={index} src={src} alt={`Customer ${index + 1}`} />
               ))}
+              <div className="avatar-more">+1.2k</div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
+
+        {/* Right Panel Card: Upright Doctor & Overlapping Floating elements */}
         <HeroDoctor />
       </div>
     </section>
