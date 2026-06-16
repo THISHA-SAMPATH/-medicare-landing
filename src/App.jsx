@@ -2,6 +2,7 @@ import Navbar from './components/layout/Navbar'
 import Hero from './components/sections/Hero'
 import Features from './components/sections/Features'
 import TrustedBy from './components/sections/TrustedBy'
+import Consultants from './components/sections/Consultants'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <Features />
       <TrustedBy />
+      <Consultants />
     </main>
   )
 }
