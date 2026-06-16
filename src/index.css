@@ -689,6 +689,11 @@ img {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.dark .feature-card {
+  background: var(--paper);
+  border-color: var(--line);
+}
+
 .feature-card:hover {
   box-shadow: 0 18px 35px rgba(55, 51, 92, 0.09);
 }
@@ -730,6 +735,11 @@ img {
   border-radius: 18px 18px 0 0;
   background: #fff;
   box-shadow: 0 18px 32px rgba(37, 31, 55, 0.18);
+}
+
+.dark .phone {
+  background: var(--paper);
+  border-color: #0d0d12;
 }
 
 .phone-notch {
@@ -805,6 +815,10 @@ img {
   background: #efeff7;
 }
 
+.dark .phone-list span {
+  background: var(--line);
+}
+
 .chat-card {
   position: absolute;
   left: 17px;
@@ -814,6 +828,10 @@ img {
   border-radius: 13px;
   background: #fff;
   box-shadow: 0 14px 32px rgba(35, 36, 68, 0.12);
+}
+
+.dark .chat-card {
+  background: var(--paper);
 }
 
 .chat-head {
@@ -842,6 +860,11 @@ img {
   background: #f1f2f7;
 }
 
+.dark .bubble.in {
+  color: var(--ink);
+  background: var(--line);
+}
+
 .bubble.out {
   margin-left: auto;
   color: #fff;
@@ -858,6 +881,11 @@ img {
   color: #aaaab4;
   background: #f6f6fb;
   font-size: 5px;
+}
+
+.dark .message-input {
+  background: var(--line);
+  color: var(--muted);
 }
 
 .dashboard {
@@ -1169,6 +1197,10 @@ img {
   position: relative;
 }
 
+.dark .clipboard-card {
+  background: var(--paper);
+}
+
 .clipboard-card.primary {
   width: 70px;
   height: 80px;
@@ -1210,9 +1242,17 @@ img {
   width: 100%;
 }
 
+.dark .clipboard-card .line {
+  background: var(--line);
+}
+
 .clipboard-card .line.short {
   width: 60%;
   background: #e2e8f0;
+}
+
+.dark .clipboard-card .line.short {
+  background: var(--muted);
 }
 
 .global-mockup-wrapper {
@@ -1237,6 +1277,10 @@ img {
   font-size: 8px;
   font-weight: 800;
   color: var(--ink);
+}
+
+.dark .global-mockup-wrapper .flag-badge {
+  background: var(--paper);
 }
 
 .global-mockup-wrapper .flag-badge .arrow {
@@ -1266,6 +1310,10 @@ img {
   font-weight: 900;
 }
 
+.dark .rx-visual span {
+  background: var(--paper);
+}
+
 .global-tags {
   position: absolute;
   left: 15px;
@@ -1286,6 +1334,11 @@ img {
   text-align: center;
 }
 
+.dark .global-tags span {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 .floating-note {
   position: absolute;
   right: 10px;
@@ -1299,6 +1352,10 @@ img {
   background: #fff;
   font-size: 5.5px;
   font-weight: 900;
+}
+
+.dark .floating-note {
+  background: var(--paper);
 }
 
 .explore {
