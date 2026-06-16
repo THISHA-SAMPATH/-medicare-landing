@@ -9,7 +9,7 @@ import Footer from './components/layout/Footer'
 
 function App() {
   return (
-    <main className="overflow-x-hidden">
+    <div className="w-full overflow-x-hidden bg-white dark:bg-gray-900">
       <Navbar />
       <Hero />
       <Features />
@@ -18,7 +18,7 @@ function App() {
       <MapFeatures />
       <CTABanner />
       <Footer />
-    </main>
+    </div>
   )
 }
 

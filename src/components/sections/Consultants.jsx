@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { CONSULTANTS } from '../../constants/data'
-import Badge from '../ui/Badge'
 import Button from '../ui/Button'
 
 const stagger = {
@@ -15,8 +14,8 @@ const fadeUp = {
 
 export default function Consultants() {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="doctors" className="section-padding bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto container-custom">
 
         {/* Header */}
         <motion.div
@@ -26,8 +25,8 @@ export default function Consultants() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Collaborate with our best<br />consultant by online
+          <h2 className="section-title">
+            Collaborate with our best consultants online
           </h2>
         </motion.div>
 
@@ -37,7 +36,7 @@ export default function Consultants() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 doctors-grid"
         >
           {CONSULTANTS.map(doc => (
             <motion.div
@@ -54,7 +53,7 @@ export default function Consultants() {
                   className="w-14 h-14 rounded-full bg-gray-100 border-2 border-violet-100"
                 />
                 <span className={`
-                  text-xs font-semibold px-3 py-1 rounded-full
+                  text-xs font-semibold px-4 py-1.5 rounded-full
                   ${doc.available
                     ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400'
                     : 'bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400'
@@ -96,7 +95,7 @@ export default function Consultants() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto"
+          className="text-center max-w-2xl mx-auto doctors-bottom-cta"
         >
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
             Patients can consult with healthcare providers from the comfort

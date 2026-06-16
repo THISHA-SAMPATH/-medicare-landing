@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useScrollY } from '../../hooks/useScrollY'
-import { useTheme } from '../../hooks/useTheme'
+import { useTheme } from '../../context/ThemeContext'
 import { NAV_LINKS } from '../../constants/data'
 import Button from '../ui/Button'
 
@@ -51,7 +51,7 @@ export default function Navbar() {
             : 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent'
         }
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto container-custom">
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
@@ -91,34 +91,39 @@ export default function Navbar() {
             </div>
 
             {/* Right Side */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
 
               {/* Theme Toggle */}
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
                 aria-label="Toggle dark mode"
-                className={
-                  isDark
-                    ? 'relative w-14 h-7 rounded-full transition-colors duration-300 cursor-pointer bg-violet-600'
-                    : 'relative w-14 h-7 rounded-full transition-colors duration-300 cursor-pointer bg-gray-200'
-                }
+                className={`
+                  relative w-12 h-6 rounded-full transition-colors duration-300 cursor-pointer shrink-0
+                  ${isDark ? 'bg-violet-600' : 'bg-gray-200'}
+                `}
               >
-                <motion.div
-                  animate={{ x: isDark ? 28 : 4 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                  className="absolute top-1 w-5 h-5 bg-white rounded-full shadow flex items-center justify-center"
+                <div
+                  className={`
+                    absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow flex items-center justify-center transition-transform duration-300
+                    ${isDark ? 'translate-x-6' : 'translate-x-0'}
+                  `}
                 >
                   {isDark
                     ? <Moon size={10} className="text-violet-600" />
                     : <Sun size={10} className="text-yellow-500" />
                   }
-                </motion.div>
+                </div>
               </motion.button>
 
-              {/* Get Started — desktop */}
-              <div className="hidden md:block">
-                <Button size="sm">Get Started</Button>
+              {/* Auth links — desktop */}
+              <div className="hidden md:flex items-center gap-5">
+                <a href="#login" className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+                  Login
+                </a>
+                <Button size="sm" className="hover:bg-violet-750 font-semibold shadow-sm">
+                  Sign Up
+                </Button>
               </div>
 
               {/* Hamburger — mobile */}
@@ -160,9 +165,14 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <Button size="sm" className="w-full justify-center mt-2">
-                Get Started
-              </Button>
+              <div className="flex items-center justify-between gap-4 mt-2 pt-2 border-t border-gray-100 dark:border-gray-800">
+                <a href="#login" onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-gray-600 dark:text-gray-300 px-4 py-2 hover:text-violet-600">
+                  Login
+                </a>
+                <Button size="sm" onClick={() => setMenuOpen(false)} className="flex-1 justify-center">
+                  Sign Up
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}

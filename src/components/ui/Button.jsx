@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { cn } from '../../utils/cn'
 
 const variants = {
   primary: 'bg-violet-600 hover:bg-violet-700 text-white',
@@ -8,9 +9,9 @@ const variants = {
 }
 
 const sizes = {
-  sm: 'px-4 py-2 text-sm',
-  md: 'px-6 py-3 text-sm',
-  lg: 'px-8 py-4 text-base',
+  sm: 'px-6 py-3 text-sm',
+  md: 'px-8 py-4 text-sm',
+  lg: 'px-10 py-4.5 text-base',
 }
 
 export default function Button({
@@ -26,16 +27,15 @@ export default function Button({
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className={`
-        inline-flex items-center gap-2 rounded-full font-medium
-        transition-colors duration-200 cursor-pointer
-        ${variants[variant]}
-        ${sizes[size]}
-        ${className}
-      `}
+      className={cn(
+        'inline-flex items-center gap-2 rounded-full font-medium transition-colors duration-200 cursor-pointer',
+        variants[variant],
+        sizes[size],
+        className
+      )}
       {...props}
     >
       {children}
     </motion.button>
   )
-}
+}
