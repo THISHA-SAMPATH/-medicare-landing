@@ -1,4 +1,3 @@
-cat > src/components/sections/Consultants.jsx << 'EOF'
 import { motion } from 'framer-motion'
 import { CONSULTANTS } from '../../constants/data'
 import Badge from '../ui/Badge'
@@ -117,4 +116,3 @@ export default function Consultants() {
     </section>
   )
 }
-EOF

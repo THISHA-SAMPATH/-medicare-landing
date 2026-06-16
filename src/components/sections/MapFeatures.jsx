@@ -1,4 +1,3 @@
-cat > src/components/sections/MapFeatures.jsx << 'EOF'
 import { motion } from 'framer-motion'
 import { ADDITIONAL_FEATURES } from '../../constants/data'
 import Button from '../ui/Button'
@@ -119,4 +118,3 @@ export default function MapFeatures() {
     </section>
   )
 }
-EOF

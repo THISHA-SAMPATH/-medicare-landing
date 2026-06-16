@@ -1,4 +1,3 @@
-cat > src/components/sections/CTABanner.jsx << 'EOF'
 import { motion } from 'framer-motion'
 import Button from '../ui/Button'
 
@@ -93,4 +92,3 @@ export default function CTABanner() {
     </section>
   )
 }
-EOF

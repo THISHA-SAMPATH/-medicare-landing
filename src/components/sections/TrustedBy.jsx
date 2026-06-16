@@ -1,4 +1,3 @@
-cat > src/components/sections/TrustedBy.jsx << 'EOF'
 import { motion } from 'framer-motion'
 
 const LOGOS = [
@@ -59,4 +58,3 @@ export default function TrustedBy() {
     </section>
   )
 }
-EOF
