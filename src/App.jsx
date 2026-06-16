@@ -4,6 +4,7 @@ import Features from './components/sections/Features'
 import TrustedBy from './components/sections/TrustedBy'
 import Consultants from './components/sections/Consultants'
 import MapFeatures from './components/sections/MapFeatures'
+import CTABanner from './components/sections/CTABanner'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <TrustedBy />
       <Consultants />
       <MapFeatures />
+      <CTABanner />
     </main>
   )
 }
