@@ -3,6 +3,7 @@ import Hero from './components/sections/Hero'
 import Features from './components/sections/Features'
 import TrustedBy from './components/sections/TrustedBy'
 import Consultants from './components/sections/Consultants'
+import MapFeatures from './components/sections/MapFeatures'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Features />
       <TrustedBy />
       <Consultants />
+      <MapFeatures />
     </main>
   )
 }
