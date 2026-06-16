@@ -7,7 +7,11 @@ Designed with modern UI/UX principles, Medicare features custom glassmorphism, s
 ---
 LIVE DEMO: https://medicare-landing-psi.vercel.app/
 
+### ⚡ Lighthouse Performance Score
+![Lighthouse Score](./public/lighthouse.png)
+
 ## ✨ Key Features
+
 
 *   **🌓 Full Global Theme Engine**: Seamlessly switch between Light and Dark mode globally from the Navbar. Themes are fully synchronized and persist via `localStorage`.
 *   **🎨 Premium Glassmorphic Design**: Curated color palettes with HSL-tailored variables, smooth CSS gradients, custom micro-animations, and high-impact typography.
